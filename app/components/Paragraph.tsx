@@ -1,4 +1,4 @@
-import "./Paragraph.css";
+import classes from "./Paragraph.module.css";
 export function Paragraph({ children }: { children: string }) {
-  return <p className="paragraph">{children}</p>;
+  return <p className={classes.paragraph}>{children}</p>;
 }
