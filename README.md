@@ -2,7 +2,6 @@
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
-
 ## Features
 
 - 🚀 Server-side rendering
@@ -85,9 +84,8 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 
 Built with ❤️ using React Router.
 
-
-
-
 ```
 npx react-router reveal
 ```
+
+install the tailwindcss intellinsense vs code extension
