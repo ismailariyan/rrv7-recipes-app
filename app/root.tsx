@@ -11,6 +11,13 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { Link } from "react-router";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "React Recipes" },
+    { name: "description", content: "A collection of React recipes" },
+  ];
+}
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
