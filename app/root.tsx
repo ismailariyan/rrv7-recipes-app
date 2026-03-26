@@ -9,7 +9,13 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { Link } from "react-router";
+import AppNavLink from "./components/AppNavLink";
+import {
+  RecipeBookIcon,
+  DiscoverIcon,
+  HomeIcon,
+  SettingsIcon,
+} from "./components/icons";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -54,21 +60,23 @@ export default function App() {
     <>
       <nav className="bg-primary text-white">
         <ul className="flex flex-col">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="app">App</Link>
-          </li>
-          <li>
-            <Link to="discover">Discover</Link>
-          </li>
-          <li>
-            <Link to="settings">Settings</Link>
-          </li>
+          <AppNavLink to="/">
+            <HomeIcon />
+          </AppNavLink>
+          <AppNavLink to="app">
+            <RecipeBookIcon />
+          </AppNavLink>
+          <AppNavLink to="discover">
+            <DiscoverIcon />
+          </AppNavLink>
+          <AppNavLink to="settings">
+            <SettingsIcon />
+          </AppNavLink>
         </ul>
       </nav>
-      <Outlet />
+      <div className="p-4">
+        <Outlet />
+      </div>
     </>
   );
 }
