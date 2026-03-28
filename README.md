@@ -91,3 +91,9 @@ npx react-router reveal
 install the tailwindcss intellinsense vs code extension
 
 https://www.prisma.io/docs/guides/frameworks/react-router-7
+
+how to seed the db
+
+```
+npx prisma db seed
+```
