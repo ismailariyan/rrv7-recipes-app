@@ -1,5 +1,5 @@
 import React from "react";
-import { Await, Link, Outlet, useLoaderData } from "react-router";
+import { Await, Link, Outlet, useLoaderData, useLocation } from "react-router";
 
 export async function loader() {
   const slowMessage = new Promise<string>((resolve) => {
@@ -14,13 +14,14 @@ export async function loader() {
 }
 
 export default function Settings() {
+  const location = useLocation();
   const data = useLoaderData<typeof loader>();
   return (
     <div>
       <h1>Settings</h1>
       <p> this is the settings page</p>
       <p> Message from loader: {data.message}</p>
-      <React.Suspense fallback={<p>Loading...</p>}>
+      <React.Suspense fallback={<p>Loading...</p>} key={location.pathname}>
         <Await resolve={data.slowMessage}>
           {(slowMessage) => <p>{slowMessage}</p>}
         </Await>
