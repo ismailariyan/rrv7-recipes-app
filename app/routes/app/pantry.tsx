@@ -1,18 +1,17 @@
 import { useLoaderData } from "react-router";
-import type { PantryShelf } from "~/generated/prisma/client";
-import prisma from "~/lib/prisma";
+import { getAllShelves } from "~/models/pantry-shelf.server";
 
 export async function loader() {
-  const shelves = await prisma.pantryShelf.findMany();
+  const shelves = await getAllShelves();
   return { shelves };
 }
 export default function Pantry() {
-  const { shelves } = useLoaderData();
+  const { shelves } = useLoaderData<typeof loader>();
   return (
     <div>
       <p>This is the pantry page.</p>
       <ul>
-        {shelves.map((shelf: PantryShelf) => (
+        {shelves.map((shelf) => (
           <li key={shelf.id}>{shelf.name}</li>
         ))}
       </ul>
