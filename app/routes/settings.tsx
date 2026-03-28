@@ -1,5 +1,6 @@
 import React from "react";
 import { Await, Link, Outlet, useLoaderData, useLocation } from "react-router";
+import type { Route } from "./+types/settings";
 
 export async function loader() {
   const slowMessage = new Promise<string>((resolve) => {
@@ -33,4 +34,16 @@ export default function Settings() {
       <Outlet />
     </div>
   );
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (error instanceof Error) {
+    return (
+      <div className="bg-red-300 border-2 border-red-600 rounded-md p-4">
+        <h1>Settings Error</h1>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
+  return <div>An unknown error occurred.</div>;
 }
