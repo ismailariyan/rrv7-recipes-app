@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="flex flex-col h-full">
       <h1 className="text-2xl font-bold my-4">App</h1>
-      <nav className="mt-2 pb-2 border-b-2">
+      <nav className="mt-2 pb-2 border-b-2 border-gray-200">
         <NavLink
           to="pantry"
           className={({ isActive }) =>
